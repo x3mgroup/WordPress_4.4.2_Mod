@@ -186,7 +186,9 @@ function wp_install_defaults( $user_id ) {
 		'comment_count' => 1,
 		'to_ping' => '',
 		'pinged' => '',
-		'post_content_filtered' => ''
+		'post_content_filtered' => '',
+		'comment_status' => 'closed',
+		'ping_status' => 'closed'
 	));
 	$wpdb->insert( $wpdb->term_relationships, array('term_taxonomy_id' => $cat_tt_id, 'object_id' => 1) );
 
@@ -239,7 +241,9 @@ As a new WordPress user, you should go to <a href=\"%s\">your dashboard</a> to d
 		'post_type' => 'page',
 		'to_ping' => '',
 		'pinged' => '',
-		'post_content_filtered' => ''
+		'post_content_filtered' => '',
+		'comment_status' => 'closed',
+		'ping_status' => 'closed'
 	));
 	$wpdb->insert( $wpdb->postmeta, array( 'post_id' => 2, 'meta_key' => '_wp_page_template', 'meta_value' => 'default' ) );
 
@@ -2730,3 +2734,16 @@ function wp_should_upgrade_global_tables() {
 	 */
 	return apply_filters( 'wp_should_upgrade_global_tables', $should_upgrade );
 }
+/**
+ * X3m Group - WP 4.4.2 Modifications (2016-02-16)
+ * ===============================================
+ * The following lines have been added to the file UPGRADE.PHP
+ * (WP-ADMIN\INCLUDES) after lines #189 and #210
+ * These are to 2 instances of [ $wpdb->insert( $wpdb->posts, array( ]
+ *
+ * 'comment_status' => 'closed',
+ * 'ping_status' => 'closed' 
+ *
+ * Don't forget to insert a comma on the end of lines #178 & 199!
+ */
+ 
