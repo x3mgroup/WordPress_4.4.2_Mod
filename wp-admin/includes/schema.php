@@ -414,16 +414,16 @@ function populate_options() {
 	'mailserver_pass' => 'password',
 	'mailserver_port' => 110,
 	'default_category' => 1,
-	'default_comment_status' => 'open',
-	'default_ping_status' => 'open',
-	'default_pingback_flag' => 1,
+	'default_comment_status' => 'closed',
+	'default_ping_status' => 'closed',
+	'default_pingback_flag' => 0,
 	'posts_per_page' => 10,
 	/* translators: default date format, see http://php.net/date */
-	'date_format' => __('F j, Y'),
+	'date_format' => __('Y/m/d'),
 	/* translators: default time format, see http://php.net/date */
-	'time_format' => __('g:i a'),
+	'time_format' => __('H:i'),
 	/* translators: links last updated date format, see http://php.net/date */
-	'links_updated_date_format' => __('F j, Y g:i a'),
+	'links_updated_date_format' => __('Y/m/d H:i'),
 	'comment_moderation' => 0,
 	'moderation_notify' => 1,
 	'permalink_structure' => '',
@@ -460,7 +460,7 @@ function populate_options() {
 	// 2.1
 	'blog_public' => '1',
 	'default_link_category' => 2,
-	'show_on_front' => 'posts',
+	'show_on_front' => 'page',
 
 	// 2.2
 	'tag_base' => '',
@@ -503,7 +503,7 @@ function populate_options() {
 
 	// 3.0
 	'page_for_posts' => 0,
-	'page_on_front' => 0,
+	'page_on_front' => 2,
 
 	// 3.1
 	'default_post_format' => 0,
@@ -1102,3 +1102,27 @@ We hope you enjoy your new site. Thanks!
 
 	return true;
 }
+/**
+ * X3m Group - WP 4.4.2 Modifications (2016-02-16)
+ * ===============================================
+ * The following values of file SCHEMA.PHP
+ * (WP-ADMIN\INCLUDES)
+ * have been adjusted
+ * 
+ * LINE 417: 'default_comment_status'    was 'open'         changed to 'closed'
+ * LINE 418: 'default_ping_status'       was 'open'         changed to 'closed'
+ * LINE 419: 'default_pingback_flag'     was 1              changed to 0
+ * 
+ * LINE 422: 'date_format'               was 'F j, Y'       changed to 'Y/m/d'
+ *
+ * LINE 424: 'time_format'               was 'g:i a'        changed to 'H:i'
+ * 
+ * LINE 426: 'links_updated_date_format' was 'F j, Y g:i a'	changed to 'Y/m/d H:i'
+ * 
+ * LINE 463: 'show_on_front'             was 'posts' 		changed to 'page'
+ * 
+ * LINE ???: 'enable_xmlrpc'             *info: not available anymore, check wp_config.php file!
+ * 
+ * LINE 506: 'page_on_front'             was 0              changed to 2
+ * 
+ */ 
